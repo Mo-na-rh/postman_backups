@@ -1,0 +1,101 @@
+{
+	"info": {
+		"_postman_id": "f5d72f02-5008-4e4e-9570-e19c0743070c",
+		"name": "Sample Postman Collection",
+		"description": "A sample collection to demonstrate collections as a set of related requests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Newman: GET request",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.test('expect response be 200', function () {",
+							"    pm.response.to.be.ok",
+							"})",
+							"pm.test('expect response json contain args', function () {",
+							"    pm.expect(pm.response.json().args).to.have.property('source')",
+							"      .and.equal('newman-sample-github-collection')",
+							"})"
+						],
+						"id": "cd4e38c6-809b-4e24-b82e-e7e63cdc22d7"
+					}
+				}
+			],
+			"id": "9bc7081f-6e9a-463a-971a-09819ffcbdf0",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://postman-echo.com/get?source=newman-sample-github-collection",
+					"protocol": "https",
+					"host": [
+						"postman-echo",
+						"com"
+					],
+					"path": [
+						"get"
+					],
+					"query": [
+						{
+							"key": "source",
+							"value": "newman-sample-github-collection"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Newman: POST request",
+			"id": "31c2fb58-c759-419d-ac59-15590ded10c6",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/plain"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "Duis posuere augue vel cursus pharetra. In luctus a ex nec pretium..."
+				},
+				"url": "https://postman-echo.com/post"
+			},
+			"response": []
+		},
+		{
+			"name": "Newman: POST request with JSON body",
+			"id": "fc78e9d8-d63d-4009-a863-d1d51696da80",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"text\":\"Duis posuere augue vel cursus pharetra. In luctus a ex nec pretium...\"}"
+				},
+				"url": "https://postman-echo.com/post"
+			},
+			"response": []
+		}
+	]
+}
